@@ -1,0 +1,15 @@
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+*.sqlite3
+tokens.json
+plugin-data/
+dist/
+build/
+*.egg-info/
+.tmp-home/
+docs-full.txt
+official-plugins/

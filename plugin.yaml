@@ -1,0 +1,33 @@
+manifest_version: 2
+api_version: 1
+name: ebay
+label: eBay Seller Monitor
+kind: standalone
+version: 0.1.0
+author: drascom
+license: MIT
+homepage: https://github.com/drascom/hermes-ebay
+description: Read-only eBay seller account, order, offer, return, cancellation, and monitoring tools.
+requires_hermes: ">=0.21.6"
+tags: [ebay, ecommerce, seller, monitoring, read-only]
+provides_tools:
+  - ebay_account_status
+  - ebay_orders
+  - ebay_offers
+  - ebay_returns
+  - ebay_cancellations
+  - ebay_monitor_status
+provides_hooks: []
+optional_env:
+  - name: EBAY_APP_ID
+    description: Production App ID (Client ID) from the eBay Developer Program
+    prompt: eBay Production App ID
+    secret: false
+  - name: EBAY_CERT_ID
+    description: Production Cert ID (Client Secret); keep this secret
+    prompt: eBay Production Cert ID
+    secret: true
+  - name: EBAY_RUNAME
+    description: OAuth Redirect URL name (RuName), not the browser callback URL
+    prompt: eBay RuName
+    secret: false

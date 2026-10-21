@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling>=1.25,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "hermes-ebay"
+version = "0.1.0"
+description = "Read-only eBay seller monitoring plugin for Hermes Agent"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{name = "drascom"}]
+classifiers = ["Development Status :: 3 - Alpha", "License :: OSI Approved :: MIT License", "Programming Language :: Python :: 3"]
+dependencies = []
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "ruff>=0.8,<1"]
+
+[project.entry-points."hermes_agent.plugins"]
+ebay = "hermes_ebay:register"
+
+[project.urls]
+Homepage = "https://github.com/drascom/hermes-ebay"
+Issues = "https://github.com/drascom/hermes-ebay/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["hermes_ebay"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 120
+extend-exclude = ["official-plugins", ".tmp-home"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "S"]
+ignore = ["E501", "S310"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S101", "S105"]
